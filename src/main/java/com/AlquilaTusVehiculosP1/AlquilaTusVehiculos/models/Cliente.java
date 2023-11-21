@@ -80,9 +80,4 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente [clienteId=" + clienteId + ", contraseña=" + password + ", nombre="
-                + nombre + ", email=" + email + ", telefono=" + telefono + "]";
-    }
 }

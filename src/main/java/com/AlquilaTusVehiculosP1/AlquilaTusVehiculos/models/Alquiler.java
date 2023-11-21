@@ -1,6 +1,7 @@
 package com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -12,7 +13,32 @@ public class Alquiler {
     private Date fechaInicio;
     private Date fechaFin;
     private double importe;
-    private String clienteId; // Referencia al Cliente
+    private String clienteId;
+    private String vehiculoId;
+
+    @Transient
+    private Cliente cliente;
+
+    // Getters y setters
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    @Transient
+    private Vehiculo vehiculo;
+
+    // Getters y setters
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
 
     // Constructor, getters y setters
 
@@ -20,14 +46,23 @@ public class Alquiler {
         // Constructor por defecto
     }
 
-    public Alquiler(Date fechaInicio, Date fechaFin, double importe, String clienteId) {
+    public Alquiler(Date fechaInicio, Date fechaFin, double importe, String clienteId, String vehiculoId) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.importe = importe;
         this.clienteId = clienteId;
+        this.vehiculoId = vehiculoId;
     }
 
     // Getters y setters
+
+    public String getVehiculoId() {
+        return vehiculoId;
+    }
+
+    public void setVehiculoId(String vehiculoId) {
+        this.vehiculoId = vehiculoId;
+    }
 
     public String getAlquilerId() {
         return alquilerId;

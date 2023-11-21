@@ -1,9 +1,12 @@
 package com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.controllers;
 
 import com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.models.Alquiler;
+import com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.models.Cliente;
 import com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.models.Vehiculo;
 import com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.repositories.AlquilerRepository;
 import com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.repositories.VehiculoRepository;
+import com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.services.ClienteService;
+import com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.services.VehiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +19,10 @@ import java.util.List;
 public class AlquilerController {
     @Autowired
     private final AlquilerRepository alquilerRepository;
+    private VehiculoService vehiculoService;
+    private ClienteService clienteService;
+
+
     public AlquilerController(AlquilerRepository alquilerRepository) {
         this.alquilerRepository = alquilerRepository;
     }
@@ -23,8 +30,16 @@ public class AlquilerController {
     @GetMapping({"", "/"})
     public String listarAlquileres(Model model) {
         List<Alquiler> listaAlquileres = alquilerRepository.findAll();
+        listaAlquileres.forEach(alquiler -> {
+            Vehiculo vehiculo = vehiculoService.obtenerVehiculoPorId(alquiler.getVehiculoId());
+            alquiler.setVehiculo(vehiculo);
+            Cliente cliente = clienteService.obtenerClientePorId(alquiler.getClienteId());
+            alquiler.setCliente(cliente);
+        });
+
+
         model.addAttribute("paginaActiva", "alquileres"); // Agrega el nombre de la página activa
-        model.addAttribute("listaClientes", listaAlquileres);
+        model.addAttribute("listaAlquileres", listaAlquileres);
         return "alquileres";
     }
 

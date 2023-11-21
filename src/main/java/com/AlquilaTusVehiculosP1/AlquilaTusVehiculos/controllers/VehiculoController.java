@@ -1,7 +1,5 @@
 package com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.controllers;
-import com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.models.Cliente;
 import com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.models.Vehiculo;
-import com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.repositories.ClienteRepository;
 import com.AlquilaTusVehiculosP1.AlquilaTusVehiculos.repositories.VehiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;

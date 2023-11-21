@@ -12,5 +12,6 @@ public class AlquilaTusVehiculosApplication {
 
 }
 
-/*   docker run -p 8080:8080 alquilatusvehiculos:latest   */
+
 /*   docker build -t alquilatusvehiculos:latest .    */
+/*   docker run -p 8080:8080 alquilatusvehiculos:latest   */
