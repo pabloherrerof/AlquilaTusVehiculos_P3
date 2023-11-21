@@ -7,10 +7,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Cliente {
     @Id
     private String clienteId;
-    private String usuario;
-    private String contraseña;
+    private String password;
+
+    private String foto;
     private String nombre;
-    private String apellidos;
     private String email;
     private String telefono;
 
@@ -21,12 +21,12 @@ public class Cliente {
     }
 
     // Constructor con parámetros
-    public Cliente( String contraseña, String nombre, String apellidos, String email, String telefono) {
-        this.contraseña = contraseña;
+    public Cliente( String password, String nombre, String email, String telefono, String foto) {
         this.nombre = nombre;
-        this.apellidos = apellidos;
         this.email = email;
+        this.password = password;
         this.telefono = telefono;
+        this.foto = foto;
     }
 
     // Getters y setters
@@ -39,14 +39,20 @@ public class Cliente {
         this.clienteId = clienteId;
     }
 
-
-
-    public String getContraseña() {
-        return contraseña;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String contraseña) {
+        this.password = contraseña;
     }
 
     public String getNombre() {
@@ -57,13 +63,6 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
 
     public String getEmail() {
         return email;
@@ -83,7 +82,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente [clienteId=" + clienteId + ", usuario=" + usuario + ", contraseña=" + contraseña + ", nombre="
-                + nombre + ", apellidos=" + apellidos + ", email=" + email + ", telefono=" + telefono + "]";
+        return "Cliente [clienteId=" + clienteId + ", contraseña=" + password + ", nombre="
+                + nombre + ", email=" + email + ", telefono=" + telefono + "]";
     }
 }

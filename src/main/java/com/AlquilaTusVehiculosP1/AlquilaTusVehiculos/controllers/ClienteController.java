@@ -24,10 +24,10 @@ public class ClienteController {
         return "clientes";
     }
 
-    @PostMapping("/")
-    @ResponseBody
-    public Cliente crearCliente(@RequestBody Cliente cliente) {
-        return clienteRepository.save(cliente);
+    @PostMapping({"", "/"})
+    public String crearCliente(@ModelAttribute Cliente cliente) {
+        clienteRepository.save(cliente);
+        return "redirect:/clientes";
     }
 
     @GetMapping("/{id}")
@@ -36,16 +36,17 @@ public class ClienteController {
         return clienteRepository.findById(id).orElse(null);
     }
 
-    @PutMapping("/{id}")
-    @ResponseBody
-    public Cliente actualizarCliente(@PathVariable String id, @RequestBody Cliente cliente) {
+    @PostMapping("/update/{id}")
+    public String actualizarCliente(@PathVariable String id, @ModelAttribute Cliente cliente) {
         cliente.setClienteId(id);
-        return clienteRepository.save(cliente);
+        clienteRepository.save(cliente);
+        return "redirect:/clientes";
     }
 
-    @DeleteMapping("/{id}")
-    @ResponseBody
-    public void eliminarCliente(@PathVariable String id) {
+    @PostMapping("/delete/{id}")
+    public String eliminarCliente(@PathVariable String id) {
+
         clienteRepository.deleteById(id);
+        return "redirect:/clientes";
     }
 }
