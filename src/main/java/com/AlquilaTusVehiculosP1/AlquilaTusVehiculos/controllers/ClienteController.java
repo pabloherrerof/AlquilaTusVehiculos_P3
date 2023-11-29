@@ -21,6 +21,7 @@ public class ClienteController {
         List<Cliente> listaClientes = clienteRepository.findAll();
         model.addAttribute("paginaActiva", "clientes"); // Agrega el nombre de la página activa
         model.addAttribute("listaClientes", listaClientes);
+
         return "clientes";
     }
 

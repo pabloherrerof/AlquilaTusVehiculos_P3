@@ -31,6 +31,7 @@ public class VehiculoController {
     @PostMapping({"", "/"})
     public String crearVehiculo(@ModelAttribute Vehiculo vehiculo) {
         vehiculoRepository.save(vehiculo);
+
         return "redirect:/vehiculos";
     }
 

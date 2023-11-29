@@ -12,146 +12,32 @@
 
 <main class="layout">
     <section class="alquileresContainer">
-        <div class="alquilerCard">
+        <div th:each="alquiler : ${listaAlquileres}" class="alquilerCard">
             <div class="vehiculoInfoContainer">
-                <img>
                 <div class="vehiculoInfo">
                     <div class="vehiculoInfoItem">
                         <h2>ID:</h2>
-                        <p>1</p>
+                        <p th:text="${alquiler.alquilerId}"></p>
                     </div>
                     <div class="vehiculoInfoItem">
-                        <h2>Marca:</h2>
-                        <p>Toyota</p>
+                        <h2>Fecha Inicio:</h2>
+                        <p th:text="${alquiler.fechaInicio}"></p>
                     </div>
                     <div class="vehiculoInfoItem">
-                        <h2>Matrícula:</h2>
-                        <p>Corolla</p>
+                        <h2>Fecha Fin:</h2>
+                        <p th:text="${alquiler.fechaFin}"></p>
                     </div>
                     <div class="vehiculoInfoItem">
-                        <h2>Color:</h2>
-                        <p>Rojo</p>
+                        <h2>Importe:</h2>
+                        <p th:text="${alquiler.importe}"></p>
                     </div>
                     <div class="vehiculoInfoItem">
-                        <h2>Capacidad:</h2>
-                        <p>200L</p>
-                    </div>
-                </div>
-            </div>
-            <div class="clienteInfoContainer">
-                <img>
-                <div class="clienteInfo">
-                    <div class="clienteInfoItem">
-                        <h2>ID:</h2>
-                        <p>1</p>
-                    </div>
-                    <div class="clienteInfoItem">
-                        <h2>Nombre:</h2>
-                        <p>Toyota</p>
-                    </div>
-                    <div class="clienteInfoItem">
-                        <h2>Email:</h2>
-                        <p>Rojo</p>
-                    </div>
-                    <div class="clienteInfoItem">
-                        <h2>Teléfono:</h2>
-                        <p>Rojo</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="alquilerCard">
-            <div class="vehiculoInfoContainer">
-                <img>
-                <div class="vehiculoInfo">
-                    <div class="vehiculoInfoItem">
-                        <h2>ID:</h2>
-                        <p>1</p>
+                        <h2>Vehiculo Id:</h2>
+                        <p th:text="${alquiler.vehiculoId}"></p>
                     </div>
                     <div class="vehiculoInfoItem">
-                        <h2>Marca:</h2>
-                        <p>Toyota</p>
-                    </div>
-                    <div class="vehiculoInfoItem">
-                        <h2>Matrícula:</h2>
-                        <p>Corolla</p>
-                    </div>
-                    <div class="vehiculoInfoItem">
-                        <h2>Color:</h2>
-                        <p>Rojo</p>
-                    </div>
-                    <div class="vehiculoInfoItem">
-                        <h2>Capacidad:</h2>
-                        <p>200L</p>
-                    </div>
-                </div>
-            </div>
-            <div class="clienteInfoContainer">
-                <img>
-                <div class="clienteInfo">
-                    <div class="clienteInfoItem">
-                        <h2>ID:</h2>
-                        <p>1</p>
-                    </div>
-                    <div class="clienteInfoItem">
-                        <h2>Nombre:</h2>
-                        <p>Toyota</p>
-                    </div>
-                    <div class="clienteInfoItem">
-                        <h2>Email:</h2>
-                        <p>Rojo</p>
-                    </div>
-                    <div class="clienteInfoItem">
-                        <h2>Teléfono:</h2>
-                        <p>Rojo</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="alquilerCard">
-            <div class="vehiculoInfoContainer">
-                <img>
-                <div class="vehiculoInfo">
-                    <div class="vehiculoInfoItem">
-                        <h2>ID:</h2>
-                        <p>1</p>
-                    </div>
-                    <div class="vehiculoInfoItem">
-                        <h2>Marca:</h2>
-                        <p>Toyota</p>
-                    </div>
-                    <div class="vehiculoInfoItem">
-                        <h2>Matrícula:</h2>
-                        <p>Corolla</p>
-                    </div>
-                    <div class="vehiculoInfoItem">
-                        <h2>Color:</h2>
-                        <p>Rojo</p>
-                    </div>
-                    <div class="vehiculoInfoItem">
-                        <h2>Capacidad:</h2>
-                        <p>200L</p>
-                    </div>
-                </div>
-            </div>
-            <div class="clienteInfoContainer">
-                <img>
-                <div class="clienteInfo">
-                    <div class="clienteInfoItem">
-                        <h2>ID:</h2>
-                        <p>1</p>
-                    </div>
-                    <div class="clienteInfoItem">
-                        <h2>Nombre:</h2>
-                        <p>Toyota</p>
-                    </div>
-                    <div class="clienteInfoItem">
-                        <h2>Email:</h2>
-                        <p>Rojo</p>
-                    </div>
-                    <div class="clienteInfoItem">
-                        <h2>Teléfono:</h2>
-                        <p>Rojo</p>
+                        <h2>Cliente Id:</h2>
+                        <p th:text="${alquiler.clienteId}"></p>
                     </div>
                 </div>
             </div>
@@ -160,4 +46,6 @@
 </main>
 
 </body>
+
 </html>
+

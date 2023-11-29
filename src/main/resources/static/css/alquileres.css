@@ -7,19 +7,25 @@
 }
 
 .alquilerCard{
-    width: 580px;
-    height: 367px;
+    width: 420px;
+    height: 287px;
     border-radius: 30px;
     padding: 29px;
     background-color: var(--black);
-    display: grid;
-    grid-template-columns: 4fr 2fr 1fr ;
+    justify-content: center;
+
+display: flex;
+    align-items: center;
+    flex-direction: column;
     gap: 2rem;
+
 }
 
 .vehiculoInfoContainer{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
     height: 309px;
 

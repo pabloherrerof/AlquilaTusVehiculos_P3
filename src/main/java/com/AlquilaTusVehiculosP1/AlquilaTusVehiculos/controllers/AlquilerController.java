@@ -14,12 +14,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+
 @Controller
 @RequestMapping("/alquileres")
 public class AlquilerController {
+
+
     @Autowired
     private final AlquilerRepository alquilerRepository;
+    @Autowired
     private VehiculoService vehiculoService;
+    @Autowired
     private ClienteService clienteService;
 
 
@@ -36,16 +42,15 @@ public class AlquilerController {
             Cliente cliente = clienteService.obtenerClientePorId(alquiler.getClienteId());
             alquiler.setCliente(cliente);
         });
-
-
+        System.out.println(listaAlquileres);
         model.addAttribute("paginaActiva", "alquileres"); // Agrega el nombre de la página activa
         model.addAttribute("listaAlquileres", listaAlquileres);
         return "alquileres";
     }
 
-    @PostMapping("/")
-    @ResponseBody
-    public Alquiler crearAlquiler(@RequestBody Alquiler alquiler) {
+    @PostMapping({"", "/"})
+    public Alquiler crearAlquiler() {
+        Alquiler alquiler = new Alquiler("2021/05/01", "2021-05-02", 100, "655bb31a13869209aa2eb46f", "655bb2e713869209aa2eb468");
         return alquilerRepository.save(alquiler);
     }
 
